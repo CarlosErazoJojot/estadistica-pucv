@@ -38,7 +38,7 @@ with st.sidebar:
     n      = int(st.slider("n — tamaño de muestra", 2, 300, 30))
     alpha  = st.slider("α — significancia", 0.01, 0.20, 0.05, 0.01, format="%.2f")
     cola   = st.radio("Tipo de prueba", ["Cola derecha (>)", "Cola izquierda (<)", "Bilateral (≠)"])
-    st.markdown('<div style="font-size:0.7rem;color:#3A5070;margin-top:20px;">PUCV · ICI 3170</div>',
+    st.markdown('<div class="firma">Carlos Erazo · PUCV</div>',
                 unsafe_allow_html=True)
 
 ee    = sigma / np.sqrt(n)          # error estándar
@@ -88,7 +88,7 @@ elif cola.startswith("Cola izquierda"):
 else:
     xs_b = x[(x >= xc_lo) & (x <= xc_hi)]
 if len(xs_b):
-    ax.fill_between(xs_b, D1.pdf(xs_b), alpha=0.45, color="#6B5BA8", zorder=2)
+    ax.fill_between(xs_b, D1.pdf(xs_b), alpha=0.45, color="#6B4BA8", zorder=2)
 
 # potencia — área bajo H1 DENTRO de la región de rechazo
 for lo_r, hi_r in regiones:
@@ -103,7 +103,7 @@ for lo_r, hi_r in regiones:
             ax.axvline(v, color=PUCV_RED, linestyle="--", linewidth=1.5, zorder=6)
 
 ax.plot([], [], color=PUCV_RED,  linewidth=7, alpha=0.6,  label=f"α = {alpha:.3f}  (error tipo I)")
-ax.plot([], [], color="#6B5BA8", linewidth=7, alpha=0.45, label=f"β = {beta:.4f}  (error tipo II)")
+ax.plot([], [], color="#6B4BA8", linewidth=7, alpha=0.45, label=f"β = {beta:.4f}  (error tipo II)")
 ax.plot([], [], color=AZUL_BARRA,linewidth=7, alpha=0.4,  label=f"potencia = {potencia:.4f}")
 
 ax.set_xlabel("X̄  (media muestral)", fontsize=10.5, labelpad=8)
@@ -118,7 +118,7 @@ plt.close(fig)
 
 c1, c2, c3, c4 = st.columns(4)
 c1.markdown(stat_box("α — error tipo I",  f"{alpha:.4f}",    PUCV_RED),   unsafe_allow_html=True)
-c2.markdown(stat_box("β — error tipo II", f"{beta:.4f}",     "#6B5BA8"),  unsafe_allow_html=True)
+c2.markdown(stat_box("β — error tipo II", f"{beta:.4f}",     "#6B4BA8"),  unsafe_allow_html=True)
 c3.markdown(stat_box("Potencia (1−β)",    f"{potencia:.4f}", PUCV_GOLD),  unsafe_allow_html=True)
 c4.markdown(stat_box("d de Cohen",        f"{d:.4f}",        AZUL_CLARO), unsafe_allow_html=True)
 
@@ -157,7 +157,7 @@ with cc1:
     ax2.axhline(0.80, color=AZUL_CLARO, linestyle="--", linewidth=1.3, label="0.80 de referencia")
     ax2.axvline(mu0, color=PUCV_RED, linestyle="--", linewidth=1.3, alpha=0.7, label=f"μ₀ = {mu0:.1f}")
     ax2.plot([mu1], [potencia], "o", color=PUCV_GOLD, markersize=9,
-             markeredgecolor="#fff", zorder=6, label=f"μ₁ = {mu1:.1f}")
+             markeredgecolor="#FFFFFF", zorder=6, label=f"μ₁ = {mu1:.1f}")
     ax2.set_xlabel("valor real de μ", fontsize=9.5)
     ax2.set_ylabel("potencia", fontsize=9.5)
     ax2.set_ylim(-0.03, 1.03)
@@ -183,7 +183,7 @@ with cc2:
     ax3.plot(ns, potn, color=AZUL_CLARO, linewidth=2.5, zorder=4)
     ax3.axhline(0.80, color=PUCV_GOLD, linestyle="--", linewidth=1.3, label="0.80 de referencia")
     ax3.plot([n], [potencia], "o", color=PUCV_GOLD, markersize=9,
-             markeredgecolor="#fff", zorder=6, label=f"n = {n} → {potencia:.3f}")
+             markeredgecolor="#FFFFFF", zorder=6, label=f"n = {n} → {potencia:.3f}")
     ax3.set_xlabel("tamaño de muestra n", fontsize=9.5)
     ax3.set_ylabel("potencia", fontsize=9.5)
     ax3.set_ylim(-0.03, 1.03)

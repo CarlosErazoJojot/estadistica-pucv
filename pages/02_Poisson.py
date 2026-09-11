@@ -38,7 +38,7 @@ with st.sidebar:
 
     st.markdown("---")
     vista = st.radio("Vista del gráfico", ["PMF — P(X = k)", "CDF — P(X ≤ k)"])
-    st.markdown('<div style="font-size:0.7rem;color:#3A5070;margin-top:20px;">PUCV · ICI 3170</div>',
+    st.markdown('<div class="firma">Carlos Erazo · PUCV</div>',
                 unsafe_allow_html=True)
 
 # Ventana visible adaptativa (independiente del rango del slider)
@@ -63,7 +63,7 @@ col_g, col_p = st.columns([3, 1], gap="large")
 with col_g:
     fig, ax = plt.subplots(figsize=(10, 5))
     colores = [PUCV_GOLD if k == k_query else PUCV_RED if k in modas else AZUL_BARRA for k in ks]
-    ax.bar(ks, usar, color=colores, edgecolor="#0A1628", linewidth=0.6, width=0.65, zorder=3)
+    ax.bar(ks, usar, color=colores, edgecolor="#FFFFFF", linewidth=0.6, width=0.65, zorder=3)
 
     if k_query <= k_vis:
         ax.text(k_query, usar[k_query] + max(usar)*0.025, f"{usar[k_query]:.4f}",
@@ -105,8 +105,8 @@ with col_p:
         <div class="titulo">DESARROLLO</div>
         <div class="cuerpo">
             P(X = k) = e⁻λ · λᵏ / k!<br><br>
-            <span style="color:#B8963E;">Para λ = {lam:.1f}, k = {k_query}:</span><br>
-            <span style="color:#fff;padding-left:12px;">
+            <span style="color:#7D6220;">Para λ = {lam:.1f}, k = {k_query}:</span><br>
+            <span style="color:#003087;font-weight:600;padding-left:12px;">
                 e^(−{lam:.1f}) · {lam:.1f}^{k_query} / {k_query}!
             </span><br>
             <span style="color:{PUCV_GOLD};font-weight:bold;padding-left:12px;">

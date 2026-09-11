@@ -1,6 +1,7 @@
 # ============================================================
 #  app.py — Landing principal
-#  Estadística Computacional · PUCV · ICI 3170
+#  Estadística y Probabilidad · PUCV
+#  Carlos Erazo
 # ============================================================
 
 import streamlit as st
@@ -16,40 +17,61 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 html, body, [class*="css"] { font-family: 'DM Mono', monospace; }
+.stApp { background: #FFFFFF; }
+h1, h2, h3, p, li, .stMarkdown { color: #003087; }
+
 .pucv-header {
-    background: linear-gradient(90deg, #003087 0%, #001A50 70%, rgba(200,16,46,0.2) 100%);
-    border-bottom: 3px solid #B8963E;
+    background: linear-gradient(90deg, #003087 0%, #0A47B0 70%, #1B5FD0 100%);
+    border-bottom: 4px solid #7D6220;
     border-radius: 10px;
-    padding: 28px 36px;
-    margin-bottom: 32px;
+    padding: 30px 36px;
+    margin-bottom: 30px;
 }
-.pucv-header h1 { font-family:'Playfair Display',serif; font-size:2.2rem; color:#fff; margin:0 0 6px 0; }
-.pucv-header .sub { font-size:0.82rem; color:#B8963E; letter-spacing:0.15em; }
-.seccion { color:#B8963E; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase;
-           border-bottom:1px solid #1E3A5F; padding-bottom:8px; margin:24px 0 16px 0; }
+.pucv-header h1 {
+    font-family:'Playfair Display',serif; font-size:2.2rem;
+    color:#FFFFFF !important; margin:0 0 8px 0;
+}
+.pucv-header .sub {
+    font-size:0.82rem; color:#E8D9A8; letter-spacing:0.15em;
+}
+.pucv-header .autor {
+    font-size:0.78rem; color:#FFFFFF; margin-top:10px; opacity:0.92;
+}
+
+.seccion {
+    color:#003087; font-size:0.74rem; letter-spacing:0.2em; text-transform:uppercase;
+    font-weight:700; border-bottom:2px solid #7D6220;
+    padding-bottom:8px; margin:26px 0 16px 0;
+}
 .modulo-card {
-    background:linear-gradient(135deg,#0F1E38 0%,#0A1628 100%);
-    border:1px solid #1E3A5F; border-left:4px solid #B8963E;
+    background:#F4F7FB;
+    border:1px solid #D4DEEC; border-left:4px solid #7D6220;
     border-radius:10px; padding:20px 22px; margin-bottom:12px;
 }
-.modulo-card h3 { font-family:'Playfair Display',serif; color:#B8963E; margin:0 0 6px 0; font-size:1rem; }
-.modulo-card p  { color:#9BB5D8; font-size:0.8rem; margin:0; line-height:1.6; }
+.modulo-card h3 {
+    font-family:'Playfair Display',serif; color:#003087 !important;
+    margin:0 0 6px 0; font-size:1rem;
+}
+.modulo-card p  { color:#34517D !important; font-size:0.8rem; margin:0; line-height:1.6; }
 .badge-ok  { display:inline-block; font-size:0.68rem; padding:2px 10px; border-radius:20px; margin-top:10px;
-             background:rgba(184,150,62,0.15); color:#B8963E; border:1px solid #B8963E; }
+             background:#FFFFFF; color:#7D6220; border:1px solid #7D6220; }
 .badge-wip { display:inline-block; font-size:0.68rem; padding:2px 10px; border-radius:20px; margin-top:10px;
-             background:rgba(0,48,135,0.3); color:#7EBAFF; border:1px solid #3A6AB0; }
-section[data-testid="stSidebar"] { background:#060E1C !important; border-right:1px solid #1E3A5F; }
+             background:#FFFFFF; color:#2E6BB8; border:1px solid #2E6BB8; }
+section[data-testid="stSidebar"] { background:#F4F7FB !important; border-right:1px solid #D4DEEC; }
+section[data-testid="stSidebar"] * { color:#003087; }
 </style>
 """, unsafe_allow_html=True)
 
 st.markdown("""
 <div class="pucv-header">
-    <h1>📊 Estadística Computacional</h1>
-    <div class="sub">PONTIFICIA UNIVERSIDAD CATÓLICA DE VALPARAÍSO &nbsp;·&nbsp; ICI 3170</div>
+    <h1>📊 Estadística y Probabilidad</h1>
+    <div class="sub">PONTIFICIA UNIVERSIDAD CATÓLICA DE VALPARAÍSO</div>
+    <div class="autor">Carlos Erazo &nbsp;·&nbsp; Escuela de Ingeniería Civil Informática</div>
 </div>
-<p style="color:#9BB5D8; font-size:0.88rem;">
-Plataforma interactiva de apoyo al curso. Cada módulo incluye visualizaciones en tiempo real,
-calculadoras de probabilidades y contexto pedagógico. Usa el menú lateral para navegar.
+<p style="color:#4A688F; font-size:0.88rem;">
+Plataforma interactiva de apoyo a la docencia en probabilidad y estadística.
+Cada módulo incluye visualizaciones en tiempo real, calculadoras y contexto conceptual.
+Usa el menú lateral para navegar.
 </p>
 """, unsafe_allow_html=True)
 
@@ -100,9 +122,8 @@ with ci2:
 
 st.divider()
 st.markdown("""
-<div style="text-align:center;font-size:0.72rem;color:#3A5070;font-family:'DM Mono',monospace;">
-    Pontificia Universidad Católica de Valparaíso &nbsp;·&nbsp;
-    Escuela de Ingeniería Civil Informática &nbsp;·&nbsp;
-    Estadística Computacional ICI 3170
+<div style="text-align:center;font-size:0.72rem;color:#5E7391;font-family:'DM Mono',monospace;">
+    Carlos Erazo &nbsp;·&nbsp; Pontificia Universidad Católica de Valparaíso &nbsp;·&nbsp;
+    Escuela de Ingeniería Civil Informática
 </div>
 """, unsafe_allow_html=True)

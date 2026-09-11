@@ -61,7 +61,7 @@ with st.sidebar:
     st.markdown("---")
     semilla = int(st.number_input("Semilla aleatoria", value=42, step=1))
     st.caption("Misma semilla ⇒ mismos resultados. Útil para reproducir en clases.")
-    st.markdown('<div style="font-size:0.7rem;color:#3A5070;margin-top:20px;">PUCV · ICI 3170</div>',
+    st.markdown('<div class="firma">Carlos Erazo · PUCV</div>',
                 unsafe_allow_html=True)
 
 mu_pob    = DIST_PARAMS[dist_nombre]["mu"]
@@ -84,7 +84,7 @@ for idx, n in enumerate(ns_sel):
     sig_teo = sigma_pob / np.sqrt(n)
 
     ax.hist(medias, bins=40, density=True, color=AZUL_BARRA,
-            edgecolor="#0A1628", linewidth=0.4, alpha=0.75, zorder=3)
+            edgecolor="#FFFFFF", linewidth=0.4, alpha=0.75, zorder=3)
 
     xr = np.linspace(medias.min(), medias.max(), 300)
     ax.plot(xr, norm.pdf(xr, mu_pob, sig_teo), color=PUCV_GOLD, linewidth=2.2,
@@ -119,7 +119,7 @@ for i, n in enumerate(ns_sel):
     <div class="stat-box" style="border-top-color:{color};">
         <div class="label">n = {n}</div>
         <div class="value" style="color:{color};">{medias.std(ddof=1):.4f}</div>
-        <div style="font-size:0.65rem;color:#9BB5D8;margin-top:4px;">teórica: {sig_teo:.4f}</div>
+        <div style="font-size:0.65rem;color:#4A688F;margin-top:4px;">teórica: {sig_teo:.4f}</div>
     </div>
     """, unsafe_allow_html=True)
 

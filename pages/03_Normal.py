@@ -46,7 +46,7 @@ with st.sidebar:
 
     st.markdown("---")
     mostrar_z = st.checkbox("Mostrar escala Z estandarizada", value=True)
-    st.markdown('<div style="font-size:0.7rem;color:#3A5070;margin-top:20px;">PUCV · ICI 3170</div>',
+    st.markdown('<div class="firma">Carlos Erazo · PUCV</div>',
                 unsafe_allow_html=True)
 
 # ── Cálculos ──────────────────────────────────────────────────
@@ -124,7 +124,7 @@ with col_p:
         <div class="titulo">ESTANDARIZACIÓN</div>
         <div class="cuerpo">
             Z = (X − μ) / σ<br>
-            <span style="color:#B8963E;">z_a = ({a:.3f} − {mu:.1f}) / {sigma:.1f}</span><br>
+            <span style="color:#7D6220;">z_a = ({a:.3f} − {mu:.1f}) / {sigma:.1f}</span><br>
             <span style="color:{PUCV_GOLD};font-weight:bold;padding-left:12px;">= {za:.4f}</span><br>
             <span style="color:{AZUL_CLARO};">z_b = ({b:.3f} − {mu:.1f}) / {sigma:.1f}</span><br>
             <span style="color:{PUCV_GOLD};font-weight:bold;padding-left:12px;">= {zb:.4f}</span>

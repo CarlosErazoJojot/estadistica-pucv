@@ -56,15 +56,15 @@ with tab1:
 
         for label, val, color in [
             (f"P(X = {k_q_g})", f"{p_ex_g:.6f}", PUCV_GOLD),
-            (f"P(X ≤ {k_q_g})", f"{p_ac_g:.6f}", "#7EBAFF"),
+            (f"P(X ≤ {k_q_g})", f"{p_ac_g:.6f}", "#0E7490"),
             (f"P(X ≥ {k_q_g})", f"{p_cs_g:.6f}", PUCV_RED),
         ]:
             st.markdown(f'<div class="prob-box"><div class="label">{label}</div><div class="value" style="color:{color};">{val}</div></div>', unsafe_allow_html=True)
 
     with col_viz:
         fig, ax = plt.subplots(figsize=(9, 5))
-        colores = [PUCV_GOLD if k == k_q_g else "#1A5CB0" for k in ks_g]
-        ax.bar(ks_g, usar_g, color=colores, edgecolor="#0A1628", linewidth=0.5, width=0.7, zorder=3)
+        colores = [PUCV_GOLD if k == k_q_g else "#2E6BB8" for k in ks_g]
+        ax.bar(ks_g, usar_g, color=colores, edgecolor="#FFFFFF", linewidth=0.5, width=0.7, zorder=3)
         ax.axvline(mu_g, color=PUCV_RED, linestyle="--", linewidth=1.4, label=f"E[X] = 1/p = {mu_g:.2f}")
         ax.set_xlabel("k  (ensayos hasta el primer éxito)", fontsize=10, labelpad=8)
         ax.set_ylabel("P(X = k)" if vista_g == "PMF" else "P(X ≤ k)", fontsize=10)
@@ -78,8 +78,8 @@ with tab1:
         c1, c2, c3 = st.columns(3)
         for col, label, val, color in [
             (c1, "E[X] = 1/p",  f"{mu_g:.4f}",  PUCV_GOLD),
-            (c2, "Var(X)",      f"{var_g:.4f}",  "#7EBAFF"),
-            (c3, "σ",           f"{std_g:.4f}",  "#7EBAFF"),
+            (c2, "Var(X)",      f"{var_g:.4f}",  "#0E7490"),
+            (c3, "σ",           f"{std_g:.4f}",  "#0E7490"),
         ]:
             col.markdown(f'<div class="stat-box" style="border-top-color:{color};"><div class="label">{label}</div><div class="value" style="color:{color};">{val}</div></div>', unsafe_allow_html=True)
 
@@ -160,15 +160,15 @@ with tab2:
 
         for label, val, color in [
             (f"P(X = {k_q_h})", f"{p_ex_h:.6f}", PUCV_GOLD),
-            (f"P(X ≤ {k_q_h})", f"{p_ac_h:.6f}", "#7EBAFF"),
+            (f"P(X ≤ {k_q_h})", f"{p_ac_h:.6f}", "#0E7490"),
             (f"P(X ≥ {k_q_h})", f"{p_cs_h:.6f}", PUCV_RED),
         ]:
             st.markdown(f'<div class="prob-box"><div class="label">{label}</div><div class="value" style="color:{color};">{val}</div></div>', unsafe_allow_html=True)
 
     with col_viz2:
         fig2, ax2 = plt.subplots(figsize=(9, 5))
-        colores2 = [PUCV_GOLD if k == k_q_h else "#1A5CB0" for k in ks_h]
-        ax2.bar(ks_h, usar_h, color=colores2, edgecolor="#0A1628", linewidth=0.5, width=0.6, zorder=3)
+        colores2 = [PUCV_GOLD if k == k_q_h else "#2E6BB8" for k in ks_h]
+        ax2.bar(ks_h, usar_h, color=colores2, edgecolor="#FFFFFF", linewidth=0.5, width=0.6, zorder=3)
         ax2.axvline(mu_h, color=PUCV_RED, linestyle="--", linewidth=1.4, label=f"E[X] = {mu_h:.3f}")
         ax2.set_xlabel("k  (éxitos en la muestra)", fontsize=10, labelpad=8)
         ax2.set_ylabel("P(X = k)" if vista_h == "PMF" else "P(X ≤ k)", fontsize=10)
@@ -182,8 +182,8 @@ with tab2:
         c1, c2, c3 = st.columns(3)
         for col, label, val, color in [
             (c1, "E[X] = n·K/N", f"{mu_h:.4f}",  PUCV_GOLD),
-            (c2, "Var(X)",        f"{var_h:.4f}",  "#7EBAFF"),
-            (c3, "σ",             f"{std_h:.4f}",  "#7EBAFF"),
+            (c2, "Var(X)",        f"{var_h:.4f}",  "#0E7490"),
+            (c3, "σ",             f"{std_h:.4f}",  "#0E7490"),
         ]:
             col.markdown(f'<div class="stat-box" style="border-top-color:{color};"><div class="label">{label}</div><div class="value" style="color:{color};">{val}</div></div>', unsafe_allow_html=True)
 

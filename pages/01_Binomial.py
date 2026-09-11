@@ -43,7 +43,7 @@ with st.sidebar:
 
     st.markdown("---")
     vista = st.radio("Vista del gráfico", ["PMF — P(X = k)", "CDF — P(X ≤ k)"], index=0)
-    st.markdown('<div style="font-size:0.7rem;color:#3A5070;margin-top:20px;">PUCV · ICI 3170</div>',
+    st.markdown('<div class="firma">Carlos Erazo · PUCV</div>',
                 unsafe_allow_html=True)
 
 # ── Cálculos ──────────────────────────────────────────────────
@@ -72,7 +72,7 @@ col_g, col_p = st.columns([3, 1], gap="large")
 with col_g:
     fig, ax = plt.subplots(figsize=(10, 5))
     colores = [PUCV_GOLD if k == k_query else PUCV_RED if k in modas else AZUL_BARRA for k in ks]
-    ax.bar(ks, usar, color=colores, edgecolor="#0A1628", linewidth=0.6, width=0.65, zorder=3)
+    ax.bar(ks, usar, color=colores, edgecolor="#FFFFFF", linewidth=0.6, width=0.65, zorder=3)
 
     ax.text(k_query, usar[k_query] + max(usar)*0.025, f"{usar[k_query]:.4f}",
             ha="center", va="bottom", fontsize=9, color=PUCV_GOLD, fontweight="bold")
@@ -114,11 +114,11 @@ with col_p:
         <div class="titulo">DESARROLLO</div>
         <div class="cuerpo">
             P(X = k) = C(n,k) · pᵏ · (1−p)ⁿ⁻ᵏ<br><br>
-            <span style="color:#B8963E;">Para n = {n}, p = {p:.2f}, k = {k_query}:</span><br>
-            <span style="color:#fff;padding-left:12px;">
+            <span style="color:#7D6220;">Para n = {n}, p = {p:.2f}, k = {k_query}:</span><br>
+            <span style="color:#003087;font-weight:600;padding-left:12px;">
                 C({n},{k_query}) · {p:.2f}^{k_query} · {1-p:.2f}^{n-k_query}
             </span><br>
-            <span style="color:#fff;padding-left:12px;">
+            <span style="color:#003087;font-weight:600;padding-left:12px;">
                 = {binom.pmf(k_query, n, p) / (p**k_query * (1-p)**(n-k_query)):.0f}
                 · {p**k_query:.6g} · {(1-p)**(n-k_query):.6g}
             </span><br>

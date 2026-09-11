@@ -37,7 +37,7 @@ with st.sidebar:
     )
     estricto = criterio.startswith("t siempre")
     st.caption("Con σ **conocida** siempre corresponde Z, en ambos criterios.")
-    st.markdown('<div style="font-size:0.7rem;color:#3A5070;margin-top:20px;">PUCV · ICI 3170</div>',
+    st.markdown('<div class="firma">Carlos Erazo · PUCV</div>',
                 unsafe_allow_html=True)
 
 def elegir_dist(sigma_conocida, n, estricto):
@@ -112,13 +112,13 @@ with tab1:
 
         st.markdown(f"""
         <div class="resultado-box" style="background:rgba(184,150,62,0.1);border-color:{PUCV_GOLD};">
-            <div style="color:#B8963E;font-size:0.7rem;letter-spacing:.15em;margin-bottom:10px;">
+            <div style="color:#7D6220;font-size:0.7rem;letter-spacing:.15em;margin-bottom:10px;">
                 INTERVALO DE CONFIANZA AL {conf*100:.0f}%
             </div>
-            <div style="font-size:1.5rem;font-weight:700;color:#fff;text-align:center;">
+            <div style="font-size:1.5rem;font-weight:700;color:#003087;text-align:center;">
                 [ {ic_lo:.4f} &nbsp;,&nbsp; {ic_hi:.4f} ]
             </div>
-            <div style="text-align:center;color:#9BB5D8;font-size:0.8rem;margin-top:8px;">
+            <div style="text-align:center;color:#4A688F;font-size:0.8rem;margin-top:8px;">
                 X̄ ± {crit:.4f} · {simbolo}/√n &nbsp;=&nbsp; {x_bar:.2f} ± {error:.4f}
             </div>
         </div>
@@ -228,7 +228,7 @@ with tab2:
             <div style="font-size:1.4rem;font-weight:700;color:{color_res};text-align:center;">
                 {texto_res}
             </div>
-            <div style="text-align:center;color:#9BB5D8;font-size:0.8rem;margin-top:8px;">
+            <div style="text-align:center;color:#4A688F;font-size:0.8rem;margin-top:8px;">
                 p-valor = {p_val:.6f} &nbsp;{'<' if rechazar else '≥'}&nbsp; α = {alpha2:.2f}
             </div>
         </div>
@@ -310,7 +310,7 @@ with tab3:
             st.markdown(f"""
             <div class="resultado-box" style="background:rgba({rgb},0.1);border-color:{cr};">
                 <div style="font-size:1.3rem;font-weight:700;color:{cr};text-align:center;">{tx}</div>
-                <div style="text-align:center;color:#9BB5D8;font-size:0.8rem;margin-top:8px;">
+                <div style="text-align:center;color:#4A688F;font-size:0.8rem;margin-top:8px;">
                     p-valor = {pv:.6f} &nbsp;{'<' if rech else '≥'}&nbsp; α = {a_pp:.2f}
                 </div>
             </div>""", unsafe_allow_html=True)
@@ -384,7 +384,7 @@ with tab3:
             st.markdown(f"""
             <div class="resultado-box" style="background:rgba({rgb},0.1);border-color:{cr};">
                 <div style="font-size:1.3rem;font-weight:700;color:{cr};text-align:center;">{tx}</div>
-                <div style="text-align:center;color:#9BB5D8;font-size:0.8rem;margin-top:8px;">
+                <div style="text-align:center;color:#4A688F;font-size:0.8rem;margin-top:8px;">
                     p-valor = {pv:.6f} &nbsp;{'<' if rech else '≥'}&nbsp; α = {a_vv:.2f}
                 </div>
             </div>""", unsafe_allow_html=True)
@@ -453,7 +453,7 @@ with tab3:
             st.markdown(f"""
             <div class="resultado-box" style="background:rgba({rgb},0.1);border-color:{cr};">
                 <div style="font-size:1.3rem;font-weight:700;color:{cr};text-align:center;">{tx}</div>
-                <div style="text-align:center;color:#9BB5D8;font-size:0.8rem;margin-top:8px;">
+                <div style="text-align:center;color:#4A688F;font-size:0.8rem;margin-top:8px;">
                     p-valor = {pv:.6f} &nbsp;{'<' if rech else '≥'}&nbsp; α = {a_dm:.2f}
                 </div>
             </div>""", unsafe_allow_html=True)
@@ -526,7 +526,7 @@ with tab3:
             st.markdown(f"""
             <div class="resultado-box" style="background:rgba({rgb},0.1);border-color:{cr};">
                 <div style="font-size:1.3rem;font-weight:700;color:{cr};text-align:center;">{tx}</div>
-                <div style="text-align:center;color:#9BB5D8;font-size:0.8rem;margin-top:8px;">
+                <div style="text-align:center;color:#4A688F;font-size:0.8rem;margin-top:8px;">
                     p-valor = {pv:.6f} &nbsp;{'<' if rech else '≥'}&nbsp; α = {a_dp:.2f}
                 </div>
             </div>""", unsafe_allow_html=True)

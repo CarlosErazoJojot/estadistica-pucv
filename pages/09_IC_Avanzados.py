@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import norm, chi2, t as t_dist
 import sys, os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from utils.calculos import (PUCV_RED, PUCV_GOLD, AZUL_BARRA, AZUL_CLARO,
+from utils.calculos import (PUCV_BLUE, PUCV_RED, PUCV_GOLD, AZUL_BARRA, AZUL_CLARO,
                             TEXT_LIGHT, MATPLOTLIB_STYLE, CSS_BASE, stat_box)
 
 st.set_page_config(page_title="IC avanzados · PUCV", page_icon="📏", layout="wide")
@@ -29,10 +29,10 @@ def caja_ic(titulo, lo, hi, detalle, color=PUCV_GOLD):
     return f"""
     <div class="resultado-box" style="background:rgba({rgb},0.1);border-color:{color};">
         <div style="color:{color};font-size:0.7rem;letter-spacing:.15em;margin-bottom:10px;">{titulo}</div>
-        <div style="font-size:1.5rem;font-weight:700;color:#fff;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:700;color:#003087;text-align:center;">
             [ {lo:.5f} &nbsp;,&nbsp; {hi:.5f} ]
         </div>
-        <div style="text-align:center;color:#9BB5D8;font-size:0.78rem;margin-top:8px;">{detalle}</div>
+        <div style="text-align:center;color:#4A688F;font-size:0.78rem;margin-top:8px;">{detalle}</div>
     </div>"""
 
 tab1, tab2, tab3, tab4 = st.tabs(["IC para p", "IC para σ²", "IC para μ₁ − μ₂", "Efecto de n"])
@@ -222,7 +222,7 @@ with tab3:
         fig, ax = plt.subplots(figsize=(9, 3.2))
         ax.plot([lo_d, hi_d], [0, 0], color=PUCV_GOLD, linewidth=8,
                 solid_capstyle="round", alpha=0.85)
-        ax.plot([dif], [0], "o", color="#fff", markersize=9, zorder=5)
+        ax.plot([dif], [0], "o", color=PUCV_BLUE, markersize=9, zorder=5)
         ax.axvline(0, color=PUCV_RED, linestyle="--", linewidth=1.6,
                    label="μ₁ − μ₂ = 0  (sin diferencia)")
         ax.text(dif, 0.22, f"{dif:.3f}", ha="center", fontsize=9.5, color=PUCV_GOLD, fontweight="bold")
@@ -274,7 +274,7 @@ with tab4:
         ax2 = axes[1]
         ax2.plot(ns, 2*mars, color=PUCV_GOLD, linewidth=2.4, zorder=4)
         ax2.plot([n_ref], [2*m_ref], "o", color=PUCV_GOLD, markersize=9,
-                 markeredgecolor="#fff", zorder=6)
+                 markeredgecolor="#FFFFFF", zorder=6)
         for nn in (n_ref, 4*n_ref):
             if nn <= 500:
                 mm = t_dist.ppf(1-a_e/2, df=nn-1)*s_e/np.sqrt(nn)

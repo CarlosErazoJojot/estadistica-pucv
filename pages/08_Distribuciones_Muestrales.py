@@ -55,7 +55,7 @@ with tab1:
                 Var(X̄) = σ²/n = <span style="color:{AZUL_CLARO};">{sig_p**2/n_x:.4f}</span><br>
                 <b>Error estándar</b> = σ/√n =
                 <span style="color:{PUCV_GOLD};font-weight:bold;">{ee:.4f}</span><br><br>
-                <span style="color:#9BB5D8;font-size:0.72rem;">
+                <span style="color:#4A688F;font-size:0.72rem;">
                 {'X̄ ~ N(μ, σ²/n) exacta si la población es Normal; aproximada por TCL si n es grande.'
                  if sigma_conocida else
                  '(X̄−μ)/(S/√n) ~ t(n−1) cuando σ se estima con S.'}
