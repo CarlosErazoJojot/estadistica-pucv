@@ -1,5 +1,5 @@
 # 📊 Estadística Computacional · PUCV
-### ICI 3170 — Plataforma interactiva de apoyo al curso
+### Carlos Erazo Jojot · Plataforma interactiva de apoyo a la docencia
 
 Aplicación Streamlit con diez módulos interactivos de probabilidad y
 estadística. Cálculo exacto con `scipy` — sin APIs externas, sin costos
@@ -15,14 +15,14 @@ estadistica-pucv/
 ├── pages/
 │   ├── 01_Binomial.py        X ~ B(n,p)
 │   ├── 02_Poisson.py         X ~ Poisson(λ) + límite de la Binomial
-│   ├── 03_Normal.py          X ~ N(μ,σ²) + escala Z
-│   ├── 04_TCL.py             Simulación del Teorema Central del Límite
-│   ├── 05_Inferencia.py      IC + pruebas (μ, p, σ², dos muestras)
-│   ├── 06_Geometrica.py      Geométrica e Hipergeométrica
-│   ├── 07_Continuas.py       Exponencial · Uniforme · t · χ²
-│   ├── 08_Distribuciones_Muestrales.py   X̄ · p̂ · S²
-│   ├── 09_IC_Avanzados.py    IC para p, σ², μ₁−μ₂ y efecto de n
-│   └── 10_Potencia.py        α, β, potencia y curvas de potencia
+│   ├── 03_Geometrica.py      Geométrica e Hipergeométrica
+│   ├── 04_Normal.py          X ~ N(μ,σ²) + escala Z
+│   ├── 05_Continuas.py       Exponencial · Uniforme · t · χ²
+│   ├── 06_TCL.py             Simulación del Teorema Central del Límite
+│   ├── 07_Distribuciones_Muestrales.py   X̄ · p̂ · S²
+│   ├── 08_Inferencia.py      IC + pruebas (μ, p, σ², dos muestras)
+│   ├── 09_Potencia.py        α, β, potencia y curvas de potencia
+│   └── 10_IC_Avanzados.py    IC para p, σ², μ₁−μ₂ y efecto de n
 ├── utils/
 │   └── calculos.py           Paleta PUCV, CSS y helpers compartidos
 ├── .streamlit/
@@ -121,13 +121,19 @@ dos modas. La app las detecta y muestra ambas.
 
 | Color | Hex | Uso |
 |---|---|---|
-| Azul PUCV | `#003087` | Encabezados, degradados |
-| Rojo PUCV | `#C8102E` | Moda, región de rechazo, cola superior |
-| Dorado | `#B8963E` | Títulos, valor seleccionado |
+| Azul PUCV | `#003087` | Texto, encabezados, degradados |
+| Burdeo | `#A50044` | Títulos de sección, valor seleccionado, enlaces |
+| Rojo PUCV | `#C8102E` | Líneas de referencia, región de rechazo |
+| Azul medio | `#2E6BB8` | Relleno de barras y áreas |
+| Teal | `#0E7490` | Moda, segundo acento |
+| Morado | `#6B4BA8` | β en el módulo de potencia |
+
+Tema claro: fondo blanco `#FFFFFF`, paneles `#F4F7FB`. Todos los colores de texto
+superan el mínimo WCAG AA de 4.5:1 sobre blanco.
 
 ---
 
-*Pontificia Universidad Católica de Valparaíso · Escuela de Ingeniería Civil Informática*
+*Pontificia Universidad Católica de Valparaíso · *
 
 
 ---
@@ -136,20 +142,20 @@ dos modas. La app las detecta y muestra ambas.
 
 | Tema | Módulo |
 |---|---|
-| Distribución muestral de X̄, p̂, S² | 08 |
-| Teorema Central del Límite | 04 |
-| IC para μ | 05 |
-| IC para p (Wald y Wilson) | 09 |
-| IC para σ² y σ | 09 |
-| IC para μ₁ − μ₂ (Welch y pooled) | 09 |
-| Efecto de n sobre la amplitud del IC | 09 |
-| Prueba para μ (una muestra) | 05 |
-| Prueba para p (una muestra) | 05 |
-| Prueba para σ² | 05 |
-| Prueba para μ₁ − μ₂ | 05 |
-| Prueba para p₁ − p₂ | 05 |
-| Error tipo I, error tipo II, potencia | 10 |
-| Curva de potencia y cálculo de n | 10 |
+| Distribución muestral de X̄, p̂, S² | 07 |
+| Teorema Central del Límite | 06 |
+| IC para μ | 08 |
+| IC para p (Wald y Wilson) | 10 |
+| IC para σ² y σ | 10 |
+| IC para μ₁ − μ₂ (Welch y pooled) | 10 |
+| Efecto de n sobre la amplitud del IC | 10 |
+| Prueba para μ (una muestra) | 08 |
+| Prueba para p (una muestra) | 08 |
+| Prueba para σ² | 08 |
+| Prueba para μ₁ − μ₂ | 08 |
+| Prueba para p₁ − p₂ | 08 |
+| Error tipo I, error tipo II, potencia | 09 |
+| Curva de potencia y cálculo de n | 09 |
 
 ## Validación numérica
 

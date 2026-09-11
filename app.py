@@ -1,7 +1,7 @@
 # ============================================================
 #  app.py — Landing principal
 #  Estadística y Probabilidad · PUCV
-#  Carlos Erazo
+#  Carlos Erazo Jojot
 # ============================================================
 
 import streamlit as st
@@ -22,7 +22,7 @@ h1, h2, h3, p, li, .stMarkdown { color: #003087; }
 
 .pucv-header {
     background: linear-gradient(90deg, #003087 0%, #0A47B0 70%, #1B5FD0 100%);
-    border-bottom: 4px solid #7D6220;
+    border-bottom: 4px solid #A50044;
     border-radius: 10px;
     padding: 30px 36px;
     margin-bottom: 30px;
@@ -31,32 +31,38 @@ h1, h2, h3, p, li, .stMarkdown { color: #003087; }
     font-family:'Playfair Display',serif; font-size:2.2rem;
     color:#FFFFFF !important; margin:0 0 8px 0;
 }
-.pucv-header .sub {
-    font-size:0.82rem; color:#E8D9A8; letter-spacing:0.15em;
-}
-.pucv-header .autor {
-    font-size:0.78rem; color:#FFFFFF; margin-top:10px; opacity:0.92;
-}
+.pucv-header .sub { font-size:0.82rem; color:#F5C6D8; letter-spacing:0.15em; }
+.pucv-header .autor { font-size:0.8rem; color:#FFFFFF; margin-top:10px; opacity:0.94; }
 
 .seccion {
     color:#003087; font-size:0.74rem; letter-spacing:0.2em; text-transform:uppercase;
-    font-weight:700; border-bottom:2px solid #7D6220;
-    padding-bottom:8px; margin:26px 0 16px 0;
+    font-weight:700; border-bottom:2px solid #A50044;
+    padding-bottom:8px; margin:26px 0 14px 0;
 }
 .modulo-card {
     background:#F4F7FB;
-    border:1px solid #D4DEEC; border-left:4px solid #7D6220;
-    border-radius:10px; padding:20px 22px; margin-bottom:12px;
+    border:1px solid #D4DEEC; border-left:4px solid #A50044;
+    border-radius:10px; padding:18px 20px 10px 20px; margin-bottom:6px;
 }
 .modulo-card h3 {
     font-family:'Playfair Display',serif; color:#003087 !important;
     margin:0 0 6px 0; font-size:1rem;
 }
-.modulo-card p  { color:#34517D !important; font-size:0.8rem; margin:0; line-height:1.6; }
-.badge-ok  { display:inline-block; font-size:0.68rem; padding:2px 10px; border-radius:20px; margin-top:10px;
-             background:#FFFFFF; color:#7D6220; border:1px solid #7D6220; }
-.badge-wip { display:inline-block; font-size:0.68rem; padding:2px 10px; border-radius:20px; margin-top:10px;
-             background:#FFFFFF; color:#2E6BB8; border:1px solid #2E6BB8; }
+.modulo-card p { color:#34517D !important; font-size:0.8rem; margin:0; line-height:1.6; }
+
+/* Enlaces de página: apariencia de botón discreto */
+div[data-testid="stPageLink"] a {
+    background:#FFFFFF !important; border:1px solid #A50044 !important;
+    border-radius:20px !important; padding:3px 14px !important;
+    margin:0 0 16px 0 !important;
+}
+div[data-testid="stPageLink"] a p {
+    color:#A50044 !important; font-size:0.72rem !important; font-weight:600 !important;
+    margin:0 !important;
+}
+div[data-testid="stPageLink"] a:hover { background:#A50044 !important; }
+div[data-testid="stPageLink"] a:hover p { color:#FFFFFF !important; }
+
 section[data-testid="stSidebar"] { background:#F4F7FB !important; border-right:1px solid #D4DEEC; }
 section[data-testid="stSidebar"] * { color:#003087; }
 </style>
@@ -66,64 +72,71 @@ st.markdown("""
 <div class="pucv-header">
     <h1>📊 Estadística y Probabilidad</h1>
     <div class="sub">PONTIFICIA UNIVERSIDAD CATÓLICA DE VALPARAÍSO</div>
-    <div class="autor">Carlos Erazo &nbsp;·&nbsp; Escuela de Ingeniería Civil Informática</div>
+    <div class="autor">Carlos Erazo Jojot</div>
 </div>
 <p style="color:#4A688F; font-size:0.88rem;">
 Plataforma interactiva de apoyo a la docencia en probabilidad y estadística.
 Cada módulo incluye visualizaciones en tiempo real, calculadoras y contexto conceptual.
-Usa el menú lateral para navegar.
+Navega desde el menú lateral o con los enlaces de cada tarjeta.
 </p>
 """, unsafe_allow_html=True)
 
-col1, col2 = st.columns(2, gap="large")
+# ── Catálogo de módulos en el orden del menú ──────────────────
+def tarjeta(icon, titulo, desc, ruta, etiqueta):
+    st.markdown(f'<div class="modulo-card"><h3>{icon} {titulo}</h3><p>{desc}</p></div>',
+                unsafe_allow_html=True)
+    st.page_link(ruta, label=etiqueta, icon="➜")
 
-with col1:
-    st.markdown('<div class="seccion">Variables Aleatorias Discretas</div>', unsafe_allow_html=True)
-    for icon, title, desc, badge, badge_class in [
-        ("📦", "Distribución Binomial",      "X ~ B(n,p). PMF, CDF, probabilidades exactas y acumuladas con sliders interactivos.", "✓ Disponible", "badge-ok"),
-        ("⚡", "Distribución Poisson",        "X ~ Poisson(λ). Modela eventos raros. Visualiza cómo λ controla la forma.", "✓ Disponible", "badge-ok"),
-        ("🔁", "Geométrica e Hipergeométrica","Ensayos hasta el primer éxito y extracción sin reposición. Propiedad de falta de memoria.", "✓ Disponible", "badge-ok"),
-    ]:
-        st.markdown(f'<div class="modulo-card"><h3>{icon} {title}</h3><p>{desc}</p><span class="{badge_class}">{badge}</span></div>', unsafe_allow_html=True)
+st.markdown('<div class="seccion">Variables Aleatorias Discretas</div>', unsafe_allow_html=True)
+d1, d2, d3 = st.columns(3, gap="medium")
+with d1:
+    tarjeta("📦", "Binomial",
+            "X ~ B(n,p). PMF y CDF, probabilidades exactas y acumuladas, desarrollo de la fórmula.",
+            "pages/01_Binomial.py", "Abrir Binomial")
+with d2:
+    tarjeta("⚡", "Poisson",
+            "X ~ Poisson(λ). Eventos por intervalo y comparación directa con el límite de la Binomial.",
+            "pages/02_Poisson.py", "Abrir Poisson")
+with d3:
+    tarjeta("🔁", "Geométrica e Hipergeométrica",
+            "Ensayos hasta el primer éxito, falta de memoria y extracción sin reposición.",
+            "pages/03_Geometrica.py", "Abrir Geométrica")
 
-with col2:
-    st.markdown('<div class="seccion">Variables Aleatorias Continuas</div>', unsafe_allow_html=True)
-    for icon, title, desc, badge, badge_class in [
-        ("🔔", "Distribución Normal",         "X ~ N(μ,σ²). Áreas bajo la curva, estandarización Z y regla 68-95-99.7.", "✓ Disponible", "badge-ok"),
-        ("📈", "Continuas: Exp · U · t · χ²", "Exponencial, Uniforme, t-Student y Chi-cuadrado. Cuatro distribuciones en un módulo.", "✓ Disponible", "badge-ok"),
-        ("📐", "Teorema Central del Límite",   "Simulación con cualquier distribución base. Observa la convergencia a Normal con n creciente.", "✓ Disponible", "badge-ok"),
-    ]:
-        st.markdown(f'<div class="modulo-card"><h3>{icon} {title}</h3><p>{desc}</p><span class="{badge_class}">{badge}</span></div>', unsafe_allow_html=True)
+st.markdown('<div class="seccion">Variables Aleatorias Continuas</div>', unsafe_allow_html=True)
+c1, c2, c3 = st.columns(3, gap="medium")
+with c1:
+    tarjeta("🔔", "Normal",
+            "X ~ N(μ,σ²). Áreas bajo la curva, estandarización Z y regla 68–95–99.7.",
+            "pages/04_Normal.py", "Abrir Normal")
+with c2:
+    tarjeta("📈", "Continuas: Exp · U · t · χ²",
+            "Exponencial, Uniforme, t-Student y Chi-cuadrado con consulta por percentiles.",
+            "pages/05_Continuas.py", "Abrir Continuas")
+with c3:
+    tarjeta("📐", "Teorema Central del Límite",
+            "Simulación con cinco distribuciones base. Convergencia a Normal al crecer n.",
+            "pages/06_TCL.py", "Abrir TCL")
 
 st.markdown('<div class="seccion">Inferencia Estadística</div>', unsafe_allow_html=True)
-
-ci1, ci2 = st.columns(2, gap="large")
-with ci1:
-    for icon, title, desc in [
-        ("🎲", "Distribuciones Muestrales",
-         "X̄, p̂ y S². Error estándar, la conexión (n−1)S²/σ² ~ χ² y por qué la precisión crece con √n."),
-        ("🎯", "IC y Pruebas para μ",
-         "Intervalo de confianza y prueba de hipótesis sobre la media. Criterio Z/t configurable. "
-         "Incluye pruebas de proporción, varianza y dos muestras."),
-    ]:
-        st.markdown(f'<div class="modulo-card"><h3>{icon} {title}</h3><p>{desc}</p>'
-                    f'<span class="badge-ok">✓ Disponible</span></div>', unsafe_allow_html=True)
-
-with ci2:
-    for icon, title, desc in [
-        ("📏", "IC para p, σ² y μ₁−μ₂",
-         "Wald vs Wilson para proporciones, IC asimétrico para varianza, Welch vs pooled, "
-         "y el efecto del tamaño de muestra sobre la amplitud."),
-        ("🔬", "Error tipo II y Potencia",
-         "H₀ y H₁ superpuestas con α, β y potencia como áreas. Curva de potencia frente a μ y frente a n."),
-    ]:
-        st.markdown(f'<div class="modulo-card"><h3>{icon} {title}</h3><p>{desc}</p>'
-                    f'<span class="badge-ok">✓ Disponible</span></div>', unsafe_allow_html=True)
+i1, i2 = st.columns(2, gap="medium")
+with i1:
+    tarjeta("🎲", "Distribuciones Muestrales",
+            "X̄, p̂ y S². Error estándar y la relación (n−1)S²/σ² ~ χ².",
+            "pages/07_Distribuciones_Muestrales.py", "Abrir Distribuciones Muestrales")
+    tarjeta("🔬", "Error tipo II y Potencia",
+            "H₀ y H₁ superpuestas con α, β y potencia como áreas. Curvas de potencia.",
+            "pages/09_Potencia.py", "Abrir Potencia")
+with i2:
+    tarjeta("🎯", "Inferencia para μ y otras pruebas",
+            "IC y prueba para la media, más pruebas de proporción, varianza y dos muestras.",
+            "pages/08_Inferencia.py", "Abrir Inferencia")
+    tarjeta("📏", "IC para p, σ² y μ₁−μ₂",
+            "Wald vs Wilson, IC asimétrico para varianza, Welch vs pooled y el efecto de n.",
+            "pages/10_IC_Avanzados.py", "Abrir IC avanzados")
 
 st.divider()
 st.markdown("""
 <div style="text-align:center;font-size:0.72rem;color:#5E7391;font-family:'DM Mono',monospace;">
-    Carlos Erazo &nbsp;·&nbsp; Pontificia Universidad Católica de Valparaíso &nbsp;·&nbsp;
-    Escuela de Ingeniería Civil Informática
+    Carlos Erazo Jojot &nbsp;·&nbsp; Pontificia Universidad Católica de Valparaíso
 </div>
 """, unsafe_allow_html=True)
